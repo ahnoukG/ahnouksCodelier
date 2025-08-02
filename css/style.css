@@ -1,0 +1,374 @@
+@font-face {
+  	font-family: Ahnouk;
+  	src: url("fonts/ahnouk.otf");
+}
+
+body { 
+	background-image: url("../img/background.jpg");
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	margin: 0;
+	font-family: Quicksand;
+	color: #eeeeee;
+	font-size: 15px;
+}
+
+header {
+	display:flex;
+	justify-content: space-between;
+	min-height: 25px;
+	align-items: center;
+	padding: 5px;
+	
+}
+
+header a {
+	text-decoration: none;
+	color: #eeeeee;
+}
+
+.nav-header {
+	display: flex;
+}
+
+.nav-header a {
+	padding-right: 25px;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.nav-header a:hover {
+	color: white;
+	font-weight: bold;
+}
+
+header .logo img {
+	height: 40px;
+	align-items: center;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.home-menu {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 60px;
+}
+
+#home-menu-id {
+	display: block;
+	opacity: 1;
+}
+
+.home-menu-logo img {
+	width: 440px;
+	animation-name: home-menu-logo-animation;
+  	animation-duration: 2.5s;
+  	animation-iteration-count: infinite;
+  	animation-direction: alternate;
+}
+
+@keyframes home-menu-logo-animation {
+ 	0% {
+ 		filter: drop-shadow(0px 0px 1px #d2cdec);
+		}
+
+  	100% { 
+  		filter: drop-shadow(0px 0px 3px #d2cdec);
+ 	}
+ }
+
+ .home-menu-logo p {
+ 	margin-top: -5px;
+ }
+
+.sections-content button, .home-sections-menu button {
+	background-color: #9188c20d;
+	border: solid 2px #adaadb;
+	border-radius: 15px;
+	color: #eeeeee;
+	width: 180px;
+	height: 40px;
+	font-family: Quicksand;
+	/*	Hover*/
+	transition: filter 2s ease, font-size 2s ease, font-weight 1s ease;
+}
+
+.home-sections-menu {
+	margin-top: 15px;
+    justify-content: center;
+    display: grid;
+    opacity: 1;
+}
+
+.home-sections-menu button {
+	margin-bottom: 10px;
+}
+
+
+.sections-content button:hover, .home-sections-menu button:hover
+ {
+	background-color: #9188c254;
+	filter: drop-shadow(0px 0px 0px #9188c254);
+	cursor: pointer;
+	text-shadow: 0px 0px 2px white;
+	font-weight: 500;
+}
+
+.sections-content button.active {
+	background-color: #9188c27d;
+	text-shadow: 0px 0px 2px white;
+	font-weight: 500;
+
+}
+
+@media (max-width: 400px) {
+	header {
+		flex-direction: column;
+	}
+
+	nav {
+		padding: 2px 0px;
+
+	}
+
+	nav a {
+		font-size: 12px;
+	}
+
+	.main-logo img {
+		width: 300px;
+	}
+}
+
+footer  {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #38427a;
+	text-align: center;
+	letter-spacing: 2px;
+	font-size:12px;
+}
+
+#sections-id {
+	display: none;
+	text-align: center;
+}
+
+.sections-content {
+  display: none;
+  opacity: 0;
+  text-align: center;
+  text-shadow: rgb(255, 255, 255) 0px 0px 2.99961px;
+}
+
+.social-media-logo
+{
+	filter: invert(1);
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+}
+
+.projects-menu {
+	display:none;
+	opacity: 0;
+}
+
+.videogames-menu {
+	display: flex;
+	align-items: flex-start;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+#videogames-menu-id {
+	display: block;
+	opacity: 1;
+}
+
+.videogame-virtual-cetis139 {
+	cursor: pointer;
+	display: flex;
+    flex-direction: column;
+	position: relative;
+	width: 250px;
+	left: -15px;
+}
+
+.videogame-screen {
+	filter: drop-shadow(rgb(255, 255, 255) 0px 0px 2.25px);	
+}
+
+.videogame-screen, .videogame-logo{
+	position: absolute;
+	top: 25px;
+	width: 100%;
+	object-fit: cover;
+	transition: filter 0.3s ease;
+}
+
+.videogame-logo {
+	top: 200px;
+}
+
+.videogame-virtual-cetis139:hover .videogame-screen{
+	filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px);	
+}
+
+.videogame-status-caption {
+	opacity: 0;
+	text-shadow: none;
+	margin-top: 275px;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.videogame-virtual-cetis139:hover .videogame-status-caption {
+	opacity: 1;
+}
+
+.videogame-info {
+	display: table;
+	background-color: #9188c230;
+	margin-right: 20%;
+  margin-left: auto;
+  margin-top: 15px;
+	width: 70%;
+	height: 235px;
+	border: solid 2px #a9a6d8;
+	border-radius: 40px;
+	text-shadow: none;
+	align-content: center;
+	box-shadow: 0px 0px 1px #eeee;
+	list-style-position: inside;
+}
+
+.videogame-info-logo {
+	width: 250px;
+    margin-bottom: -30px;
+}
+
+.videogame-info a {
+	font-weight: 500;
+	color: #dbc9e6;
+	text-decoration: none;
+}
+
+.videogame-info a:hover {
+	color: #b5d5e4;
+	text-shadow: 0px 0px 3px #a3e1fe;
+}
+
+.videogame-preview-videos {
+	display: flex;
+    justify-content: center;
+    column-gap: 45px;
+}
+
+.models-3d-menu {
+	margin-top: 15px;
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 10px 2px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.previous-button, .next-button {
+	cursor: pointer;
+	position: absolute;
+	top: 55%;
+	width: auto;
+	margin-top: -10px;
+	padding: 15px;
+  	color: #eeeeee;
+	font-size: 35px;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	transition: filter 1s ease, color 1s ease;
+}
+
+.previous-button:hover, .next-button:hover {
+	filter: drop-shadow(0px 0px 1px white);
+	color: white;
+}
+
+.previous-button {
+	left: 0;
+}
+
+.next-button {
+	right: 0;
+}
+
+.models-3d-menu iframe {
+	border: solid 2px #adaadb;
+	border-radius: 15px;
+}
+
+#models-3d-menu-id-2 {
+	display: none;
+	opacity: 0;
+}
+
+#models-3d-menu-id-3 {
+	display: none;
+	opacity: 0;
+	grid-template-rows:0;
+    grid-template-columns:0;
+    justify-content: center;
+}
+
+#models-3d-menu-id-3 iframe {
+	width: 600px;
+    height: 320px;
+}
+
+#models-3d-menu-id-4 {
+	display: none;
+	opacity: 0;
+	grid-template-rows:0;
+    grid-template-columns:0;
+    justify-content: center;
+}
+
+#models-3d-menu-id-4 img{
+	width: 600px;
+  height: 320px;
+  border: solid 2px #adaadb;
+	border-radius: 15px;
+	filter: brightness(1.22);
+}
+
+.about-menu-info {
+	width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+	text-shadow: none;
+	margin-top: 20px;
+	background-color: #9188c230;
+	border: solid 2px #adaadb;
+	border-radius: 15px;
+	text-align: center;
+}
+
+
+.contact-menu-email, .contact-menu-social-media
+{
+	background-color: #9188c230;
+	margin-top: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: center;
+	width: 25%;
+	height: 120px;
+	border: solid 2px #adaadb;
+	border-radius: 15px;
+}
