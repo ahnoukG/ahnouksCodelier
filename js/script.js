@@ -55,7 +55,7 @@ function changeContent(id, divId) {
     }
 }
 
-function setActiveProjects(button,selectedProjectId) {
+function setActiveProjects(button, selectedProjectId) {
     const buttonProject = document.querySelectorAll(".projects-button");
 
     // Set and unset active status in button

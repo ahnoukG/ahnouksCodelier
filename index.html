@@ -14,6 +14,19 @@
 	<link rel="icon" type="image/x-icon" href="img/profile_picture.ico">
 	<title> Ahnouk's Codelier </title>
 	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<!-- Angular js -->
+	<script type="text/javascript" src="/js/framework/angular.min.js"></script>
+	<script type="text/javascript" src="/js/framework/angular-route.min.js"></script>
+	<script type="text/javascript" src="/js/framework/angular-resource.min.js"></script>
+	<script type="text/javascript" src="/js/framework/angular-animate.min.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/config/routes.js"></script>
+
+	<!-- Controladores -->
+	<script type="text/javascript" src="/js/controllers/main.controller.js"></script>
+
 	<!-- External files -->
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/script.js"></script>
@@ -21,199 +34,30 @@
 	<!-- Fonts -->
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
 		@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Quicksand:wght@300..700&display=swap');
 	</style>
 
 </head>
 
-<body>
+<body ng-app="APP" ng-controller="main_controller">
+
 	<header>
 		<a class="logo" onclick="changeContent('nav-home','home-menu-id')">
 			<img src="img/logo_3.png" alt="Logo Ahnouk's Codelier">
 		</a>
+		<h3 ng-if="username">Bienvenido {{username}}</h3>
 		<nav class="nav-header">
-			<a class="nav-element" id="nav-home" style="font-weight: bold;" onclick="changeContent(this.id,'home-menu-id')">Home</a>
-			<a class="nav-element" id="nav-projects" onclick="changeContent(this.id,'projects-menu-id')">Projects</a>
-			<!-- <a class="nav-element" id="nav-journey" onclick="changeContent(this.id,'journey-menu-id')">Dev Journey</a> -->
-			<a class="nav-element" id="nav-about" onclick="changeContent(this.id,'about-menu-id')">About</a>
-			<a class="nav-element" id="nav-contact" onclick="changeContent(this.id,'contact-menu-id')">Contact</a>
+			<a class="nav-element" id="nav-home" style="font-weight: bold;" onclick="changeContent(this.id,'home-menu-id')" href="#!/home">Home</a>
+			<a class="nav-element" id="nav-projects" onclick="changeContent(this.id,'projects-menu-id')" href="#!/projects">Projects</a>
+			<a class="nav-element" id="nav-about" onclick="changeContent(this.id,'about-menu-id')" href="#!/about">About</a>
+			<a class="nav-element" id="nav-contact" onclick="changeContent(this.id,'contact-menu-id')" href="#!/contact">Contact</a>
 		</nav>
 	</header>
-
-	<main>
-		<div class="sections-content" id="home-menu-id" data-display="block">
-		<div class="home-menu">
-			<div class="home-menu-logo">
-				<img id="home-menu-logo" class="logo" src="img/logo_3.png" alt="Logo Ahnouk's Codelier">
-				<p>Indie game development & 2D/3D Art</p>
-			</div>
-
-			<div class="home-sections-menu" id="home-sections-menu-id">
-				<button onclick="changeContent('nav-projects','projects-menu-id')">Projects</button>
-				<!-- <button onclick="changeContent('nav-journey','journey-menu-id')">Dev Journey</button> -->
-				<button onclick="changeContent('nav-about','about-menu-id')">About</button>
-				<button onclick="changeContent('nav-contact','contact-menu-id')">Contact</button>
-			</div>
-		</div>
-		</div>
-
-		<div class="sections-content" id="projects-menu-id" data-display="inherit">
-			<h1>Projects</h1>
-			<button class="projects-button active" id="projects-button-videogames"  onclick="setActiveProjects(this,'videogames-menu-id')">Videogames</button>
-			<button class="projects-button" id="projects-button-3d"  onclick="setActiveProjects(this,'models-3d-menu-id')">3D Models</button>
-
-			<div class="projects-menu" id="videogames-menu-id">
-			<div class="videogames-menu">
-
-				<!-- Videogame: Virtual CETis 139  -->
-				<div class="videogame-virtual-cetis139" id="videogame-virtual-cetis139-id">
-		  			<a onclick="videogameShowcase()"> 
-		  				<img class="videogame-screen" id="videogame-screen-id" src="img/videogames/virtual_cetis139.png" alt="Virtual Cetis 139 screen">
-		  				<!-- <img class="videogame-logo" src="img/videogames/virtual_cetis139_logo.png" alt="Virtual Cetis 139 logo">
-		  				<div class="videogame-status-caption">(In development)</div> -->
-		  			</a>
-				</div>
-
-				<div class="videogame-info">
-					<img class="videogame-info-logo" src="img/videogames/virtual_cetis139_logo.png">
-					<h3>Discover, explore, and relive CETis 139.</h3>
-					<ul>
-						<li>Walk through the hallways and explore every corner of the school in a virtual experience.</li>
-						<li>Learn about the technical programs and the study program this institution has to offer.</li>
-						<li>Reconnect with the moments that marked a special chapter in your life.</li>
-
-						<div class="videogame-preview-videos">
-							<a href="https://www.youtube.com/watch?v=r5Puw1bansI" target="_blank"> <p>Main menu preview</p> </a>
-							<a href="https://www.youtube.com/watch?v=5nvUaqI-1hg" target="_blank"> <p>Gameplay preview</p> </a>
-							<a href="https://www.youtube.com/watch?v=A3U3vc29jiw" target="_blank"> <p>3D preview</p></a>
-						</div>
-					</ul>
-				</div>
-
-				<!--Videogame: "Metsonali: Luz de Luna" -->
-				<!-- <div class="videogame-virtual-cetis139" id="videogame-virtual-cetis139-id">
-		  			<a onclick="videogameShowcase()"> 
-		  				<img class="videogame-screen" id="videogame-screen-id" src="img/videogames/metsonali_luzdeluna.png" alt="Metsonali: Luz de Luna screen">
-		  			</a>
-				</div>
-
-				<div class="videogame-info">
-					<img class="videogame-info-logo" src="img/videogames/metsonali_luzdeluna_logo.png"> <br><br>
-					<h3>The Moon keeps shining in the darkest places and times.</h3>
-					<p> Join Alison in Valle de Luna in a story where the moonlight helps her find the light even in the darkest moments. <br>
-					But sometimes too much light reveals more than we’re ready to face.
-					<p>(In development)</p>
-				</div>
-				</div> -->
-			</div>
-			</div>
-
-			<div class="projects-menu" id="models-3d-menu-id">
-
-				<!-- Models 3D Section 1 -->
-				<div class="models-3d-menu" id="models-3d-menu-id-1">
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Chihiro (V.1)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/f9e7240c01584aac9f40068813864b55/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Exterior Round Table" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/dc4ae740fd0b4d7183e21a0def8b2b5f/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="PC" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bb8e94ca3f7d42f5b48aeafa5df03e4d/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Student chair" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/0d5eb33aa93a4fcfb7930b9b44a22645/embed"> </iframe> </div>
-
-				
-				<div class="sketchfab-embed-wrapper"> <iframe title="Metal bench" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c9a6de9cc8174c718024776ba7cd0719/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Chair (Semi-Low Poly)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/60d57b1610a342a3aa3a9ba2dbce9beb/embed"> </iframe> </div>
-				</div>
-
-				<!-- Models 3D Section 2 -->
-				<div class="models-3d-menu" id="models-3d-menu-id-2">
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Desk (Low-Poly)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/4fd7117ed1044ac599591a80bef98532/embed"> </iframe> </div>	
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Lowpoly Bookshelf" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/d074a46e3ffd4952b9e7f9c4742543b8/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Ceiling fan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/a189fe68d4bf464cae20100a5f3b43f4/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Wooden Desk" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ee58cf55d2a7414a9545a8a2fbe831bb/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Access Turnstile" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/8c4796a3ba9c41fe90872d904b8f5899/embed"> </iframe> </div>
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="Whiteboard" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/67a99b2186f549518776cc395a5b3fcf/embed"> </iframe> </div>
-				</div>
-
-				<!-- Models 3D Section 3 -->
-				<div class="models-3d-menu" id="models-3d-menu-id-3">
-
-				<div class="sketchfab-embed-wrapper"> <iframe title="School computer center" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/a30eefedf8654440b1f0c32c7ebe93a2/embed?camera=0"> </iframe> </div>
-				</div>
-
-				<!-- Models 3D Section 4 -->
-				<div class="models-3d-menu" id="models-3d-menu-id-4">
-					<img src="img/projects/UTL.png">
-				</div>
-
-				<!-- Slideshow buttons -->
-				<a class="previous-button" id="previous-button-id" onclick="plusSlides(-1)">&#10094;</a>
-				<a class="next-button" id="next-button-id" onclick="plusSlides(1)">&#10095;</a>
-			</div>
-
-
-			<!-- <div class="projects-menu" id="websites-menu-id" >
-				<h2>Websites</h2>
-			</div> -->
-		</div>
-		</div>
-
-		<!-- <div id="journey-menu-id" class="sections-content" data-display="inherit">
-			<h1>Dev Journey</h1>
-		</div> -->
-
-		<div id="about-menu-id" class="sections-content" data-display="inherit">
-			<h1>About</h1>
-			<h2 style="font-size: 21px; text-shadow: none; margin-top: 30px;"> Hi, I'm an Ahnouk! A newbie indie game developer and 3D artist.</h2>
-			<div class="about-menu-info">
-				<p>
-				This project started as a way to express myself, learn, and share the things I’m passionate about: videogames, programming, development, art and more. <br><br>
-				I enjoy imagining worlds, stories, characters, and mechanics that connect with people—whether it’s through a game, an animation, or a small 3D scene made with care. <br><br>
-				Here, you'll find pieces of that universe I’m slowly building with dedication, curiosity, and a lot of heart.<br><br>
-
-				<p>
-					Thanks a lot for stopping by and being part of this creative space. <br> <br>
-					🎮💻🎨🦋🎓🌕⏳🍃🎸
-				</p>
-				
-				</p>
-			</div>
-		</div>
-
-		<div class="sections-content" id="contact-menu-id"  data-display="inherit">
-			<h1>Contact</h1>
-
-			<!-- <div class="contact-menu-email">
-				<h2>E-mail</h2>
-				<img class="social-media-logo" src="https://img.icons8.com/ios/50/new-post--v1.png" alt="new-post--v1"/>
-			</div> -->
-			
-
-			<div class="contact-menu-social-media">
-				<h2>Facebook</h2>
-				<a href="https://www.facebook.com/ahnoukscodelier" target="_blank"> <img class="social-media-logo" src="https://img.icons8.com/ios/50/facebook-new.png" alt="facebook-new"/></a>
-			</div>
-			<div class="contact-menu-social-media">
-				<h2>Instagram</h2>
-				<a href="https://www.instagram.com/ahnoukdevlier.studio" target="_blank"> <img class="social-media-logo" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="instagram-new--v1"/> </a>
-			</div>
-		</div>
-
-
-	</main>
-
+	
+	<div id="ng-viewer" ng-view></div>
+	
  	<footer>
 		<p> Ahnouk's Codelier. 2025. </p>
 	</footer>
-
 </body>
 </html>
